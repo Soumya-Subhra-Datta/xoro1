@@ -167,14 +167,13 @@ export default function Context() {
           .context-control {
             width: 100%;
             max-width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
           }
-          .context-control::-webkit-scrollbar { display: none; }
           .context-control button {
-            flex: 0 0 auto;
-            padding: 10px 14px;
+            flex: 1 1 0%;
+            min-width: 0;
+            padding: 10px 8px;
+            font-size: 0.6rem;
+            letter-spacing: 0.05em;
             white-space: nowrap;
           }
         }
