@@ -23,11 +23,11 @@ export default function ProductModel({ mouse = { x: 0, y: 0 } }) {
       <mesh position={[0, 0, 0]}>
         <boxGeometry args={[2.2, 3.2, 0.5, 4, 4, 4]} />
         <meshPhysicalMaterial
-          color="#1a1d24"
-          roughness={0.15}
-          metalness={0.9}
-          clearcoat={1}
-          clearcoatRoughness={0.1}
+          color="#3a4150"
+          roughness={0.25}
+          metalness={0.7}
+          clearcoat={0.9}
+          clearcoatRoughness={0.15}
         />
       </mesh>
 
@@ -35,13 +35,13 @@ export default function ProductModel({ mouse = { x: 0, y: 0 } }) {
       <mesh ref={displayRef} position={[0, 0.15, 0.26]}>
         <boxGeometry args={[1.8, 2.2, 0.02]} />
         <meshPhysicalMaterial
-          color="#0a1628"
+          color="#12233f"
           roughness={0.05}
           metalness={0.3}
           clearcoat={1}
           clearcoatRoughness={0.05}
-          emissive="#0a1628"
-          emissiveIntensity={0.3}
+          emissive="#0a1a33"
+          emissiveIntensity={0.55}
         />
       </mesh>
 
@@ -67,7 +67,7 @@ export default function ProductModel({ mouse = { x: 0, y: 0 } }) {
       <mesh ref={sensorRef} position={[0, -1.2, 0.2]}>
         <boxGeometry args={[1.6, 0.35, 0.08]} />
         <meshPhysicalMaterial
-          color="#0d1117"
+          color="#18202b"
           roughness={0.3}
           metalness={0.7}
         />
@@ -95,7 +95,7 @@ export default function ProductModel({ mouse = { x: 0, y: 0 } }) {
       {/* Side accent line */}
       <mesh position={[1.12, 0, 0]}>
         <boxGeometry args={[0.02, 2.8, 0.4]} />
-        <meshStandardMaterial color="#2d7aed" emissive="#2d7aed" emissiveIntensity={0.3} />
+        <meshStandardMaterial color="#2d7aed" emissive="#2d7aed" emissiveIntensity={0.9} />
       </mesh>
 
       {/* Power button */}
