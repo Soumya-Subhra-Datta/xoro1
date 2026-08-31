@@ -1,15 +1,12 @@
-import { useEffect, useState } from 'react';
-import ProductScene from '../three/ProductScene';
+import { useEffect } from 'react';
 
 export default function Hero() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
   useEffect(() => {
     const handleMouse = (e) => {
-      setMousePos({
-        x: (e.clientX / window.innerWidth - 0.5) * 2,
-        y: (e.clientY / window.innerHeight - 0.5) * 2,
-      });
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      document.documentElement.style.setProperty('--hero-mx', String(x));
+      document.documentElement.style.setProperty('--hero-my', String(y));
     };
     window.addEventListener('mousemove', handleMouse, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouse);
@@ -136,11 +133,15 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: 3D Product */}
+          {/* Right: Product */}
           <div className="hero-visual">
-            <ProductScene
-              style={{ width: '100%', height: '100%' }}
-              mouse={mousePos}
+            <div className="hero-glow" aria-hidden="true" />
+            <img
+              className="hero-product-img"
+              src="/xoro1/product/img1.jpg"
+              alt="PULSE ONE™ connected diagnostics device"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
         </div>
@@ -182,6 +183,33 @@ export default function Hero() {
           height: 70vh;
           min-height: 500px;
           position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .hero-glow {
+          position: absolute;
+          width: 70%;
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(45, 122, 237, 0.22) 0%, rgba(45, 122, 237, 0.06) 45%, transparent 70%);
+          filter: blur(10px);
+          pointer-events: none;
+        }
+        .hero-product-img {
+          position: relative;
+          max-width: 92%;
+          max-height: 88%;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+          border-radius: 8px;
+          transform: translate(
+            calc(var(--hero-mx, 0) * -12px),
+            calc(var(--hero-my, 0) * -8px)
+          );
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         @media (max-width: 900px) {
           .hero-grid {

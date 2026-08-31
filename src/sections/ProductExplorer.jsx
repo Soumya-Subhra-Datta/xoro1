@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import useReveal from '../animations/useReveal';
-import ProductScene from '../three/ProductScene';
 import { productData } from '../data/product';
 
 export default function ProductExplorer() {
@@ -25,12 +24,13 @@ export default function ProductExplorer() {
         </div>
 
         <div className="explorer-grid">
-          {/* 3D View */}
+          {/* Product View */}
           <div className="explorer-visual">
-            <ProductScene
-              activeHotspot={activeHotspot}
-              onHotspotClick={handleHotspotClick}
-              style={{ width: '100%', height: '100%' }}
+            <img
+              className="explorer-product-img"
+              src="/xoro1/product/img5.jpg"
+              alt="Explore what's inside the PULSE ONE™ connected diagnostics device"
+              loading="lazy"
             />
 
             {/* Instruction overlay */}
@@ -135,6 +135,14 @@ export default function ProductExplorer() {
           border-radius: 8px;
           border: 1px solid var(--color-border);
           overflow: hidden;
+        }
+        .explorer-product-img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
         }
         @media (max-width: 900px) {
           .explorer-grid {
