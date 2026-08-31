@@ -6,7 +6,7 @@ export default function ProductIntro() {
   const [ref2, vis2] = useReveal(0.2);
 
   return (
-    <section data-slide="slideup" style={{
+    <section style={{
       padding: 'var(--section-pad) 0',
       position: 'relative',
     }}>

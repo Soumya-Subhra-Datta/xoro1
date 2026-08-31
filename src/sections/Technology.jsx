@@ -47,7 +47,7 @@ export default function Technology() {
   const [ref3, vis3] = useReveal(0.2);
 
   return (
-    <section id="technology" data-slide="flipx" style={{
+    <section id="technology" style={{
       padding: 'var(--section-pad) 0',
       position: 'relative',
     }}>

@@ -13,7 +13,7 @@ export default function ProductExplorer() {
   const activeData = productData.hotspots.find((h) => h.id === activeHotspot);
 
   return (
-    <section id="experience" data-slide="pop" style={{
+    <section id="experience" style={{
       padding: 'var(--section-pad) 0',
       position: 'relative',
     }}>
