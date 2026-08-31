@@ -23,11 +23,13 @@ export default function ProductModel({ mouse = { x: 0, y: 0 } }) {
       <mesh position={[0, 0, 0]}>
         <boxGeometry args={[2.2, 3.2, 0.5, 4, 4, 4]} />
         <meshPhysicalMaterial
-          color="#5a6474"
-          roughness={0.3}
-          metalness={0.4}
-          clearcoat={0.8}
-          clearcoatRoughness={0.2}
+          color="#7d8899"
+          roughness={0.45}
+          metalness={0.15}
+          clearcoat={0.7}
+          clearcoatRoughness={0.35}
+          emissive="#2a3a55"
+          emissiveIntensity={0.15}
         />
       </mesh>
 
@@ -67,9 +69,11 @@ export default function ProductModel({ mouse = { x: 0, y: 0 } }) {
       <mesh ref={sensorRef} position={[0, -1.2, 0.2]}>
         <boxGeometry args={[1.6, 0.35, 0.08]} />
         <meshPhysicalMaterial
-          color="#18202b"
-          roughness={0.3}
-          metalness={0.7}
+          color="#2b3442"
+          roughness={0.4}
+          metalness={0.35}
+          emissive="#1b2433"
+          emissiveIntensity={0.2}
         />
       </mesh>
 
@@ -85,10 +89,12 @@ export default function ProductModel({ mouse = { x: 0, y: 0 } }) {
       <mesh position={[0, 1.35, 0.26]}>
         <circleGeometry args={[0.08, 24]} />
         <meshPhysicalMaterial
-          color="#0d1117"
-          roughness={0.05}
-          metalness={1}
+          color="#2a3442"
+          roughness={0.15}
+          metalness={0.4}
           clearcoat={1}
+          emissive="#1a2433"
+          emissiveIntensity={0.3}
         />
       </mesh>
 
