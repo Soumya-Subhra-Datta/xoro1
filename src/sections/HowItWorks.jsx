@@ -9,9 +9,11 @@ function StepIndicator({ step, label, isActive }) {
       flexDirection: 'column',
       alignItems: 'center',
       gap: 12,
+      width: 96,
       flex: 1,
+      padding: '0 4px',
     }}>
-      <div style={{
+      <div className="step-indicator" style={{
         width: 48,
         height: 48,
         borderRadius: '50%',
@@ -38,6 +40,8 @@ function StepIndicator({ step, label, isActive }) {
         textTransform: 'uppercase',
         color: isActive ? 'var(--color-text)' : 'var(--color-text-muted)',
         transition: 'color 0.4s',
+        textAlign: 'center',
+        lineHeight: 1.4,
       }}>
         {label}
       </span>
@@ -48,12 +52,12 @@ function StepIndicator({ step, label, isActive }) {
 function Connector({ isActive }) {
   return (
     <div style={{
-      width: '100%',
+      flex: 1,
       height: 1,
+      alignSelf: 'flex-start',
+      marginTop: 24,
       background: isActive ? 'var(--color-accent)' : 'var(--color-border)',
       transition: 'background 0.6s',
-      marginTop: -30,
-      marginBottom: 30,
     }} />
   );
 }
@@ -98,12 +102,11 @@ export default function HowItWorks() {
         {/* Step visualization */}
         <div className="step-track">
           {productData.howItWorks.map((item, index) => (
-            <div key={item.step} style={{ display: 'flex', alignItems: 'center', flex: 1, maxWidth: 200 }}>
+            <div key={item.step} className="step-item">
               <StepIndicator
                 step={item.step}
                 label={item.label}
                 isActive={index <= activeStep}
-                index={index}
               />
               {index < productData.howItWorks.length - 1 && (
                 <Connector isActive={index < activeStep} />
@@ -182,10 +185,32 @@ export default function HowItWorks() {
           align-items: flex-start;
           justify-content: center;
           margin-bottom: 80px;
+          width: 100%;
+          max-width: 720px;
+          margin-left: auto;
+          margin-right: auto;
         }
+        .step-item {
+          display: flex;
+          align-items: flex-start;
+          flex: 1;
+          min-width: 0;
+        }
+        .step-item:first-child .step-indicator-fill { }
         @media (max-width: 768px) {
           .step-track {
             margin-bottom: 60px;
+            max-width: 520px;
+          }
+          .step-item {
+            align-items: center;
+          }
+          .step-item .step-indicator {
+            width: 40px;
+            height: 40px;
+          }
+          .step-item .step-indicator span {
+            font-size: 0.7rem;
           }
         }
       `}</style>

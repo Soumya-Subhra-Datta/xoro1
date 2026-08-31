@@ -33,15 +33,18 @@ export default function Navbar() {
     }}>
       <a
         href="#"
-        style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.1rem', letterSpacing: '0.08em' }}
+        style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.1rem', letterSpacing: '0.08em', whiteSpace: 'nowrap' }}
       >
         NEXORA
       </a>
 
       {/* Desktop nav */}
       <div className="desktop-nav" style={{
+        position: 'absolute',
+        left: '50%',
+        transform: 'translateX(-50%)',
         display: 'flex',
-        gap: '2.5rem',
+        gap: '2.75rem',
         alignItems: 'center',
         fontSize: '0.72rem',
         fontWeight: 500,
@@ -55,6 +58,7 @@ export default function Navbar() {
             style={{
               color: 'var(--color-text-secondary)',
               transition: 'color 0.3s',
+              whiteSpace: 'nowrap',
             }}
             onMouseEnter={(e) => e.target.style.color = 'var(--color-text)'}
             onMouseLeave={(e) => e.target.style.color = 'var(--color-text-secondary)'}
@@ -62,33 +66,35 @@ export default function Navbar() {
             {item}
           </a>
         ))}
-        <button
-          className="nav-cta"
-          onClick={open}
-          style={{
-            padding: '10px 22px',
-            border: '1px solid var(--color-border-hover)',
-            borderRadius: '4px',
-            fontSize: '0.7rem',
-            fontWeight: 600,
-            letterSpacing: '0.1em',
-            color: 'var(--color-text)',
-            transition: 'all 0.3s',
-            background: 'transparent',
-            whiteSpace: 'nowrap',
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = 'var(--color-text)';
-            e.target.style.color = 'var(--color-bg)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = 'transparent';
-            e.target.style.color = 'var(--color-text)';
-          }}
-        >
-          REQUEST DEMO
-        </button>
       </div>
+
+      {/* Desktop CTA */}
+      <button
+        className="desktop-cta"
+        onClick={open}
+        style={{
+          padding: '10px 22px',
+          border: '1px solid var(--color-border-hover)',
+          borderRadius: '4px',
+          fontSize: '0.7rem',
+          fontWeight: 600,
+          letterSpacing: '0.1em',
+          color: 'var(--color-text)',
+          transition: 'all 0.3s',
+          background: 'transparent',
+          whiteSpace: 'nowrap',
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.background = 'var(--color-text)';
+          e.target.style.color = 'var(--color-bg)';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.background = 'transparent';
+          e.target.style.color = 'var(--color-text)';
+        }}
+      >
+        REQUEST DEMO
+      </button>
 
       {/* Mobile hamburger */}
       <button
@@ -131,7 +137,8 @@ export default function Navbar() {
 
       <style>{`
         @media (max-width: 768px) {
-          .desktop-nav {
+          .desktop-nav,
+          .desktop-cta {
             display: none !important;
           }
           .mobile-toggle {
