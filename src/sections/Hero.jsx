@@ -138,7 +138,7 @@ export default function Hero() {
             <div className="hero-glow" aria-hidden="true" />
             <img
               className="hero-product-img"
-              src="/xoro1/product/79a657bb-1037-4532-8466-6fd89648e2dc.jpg"
+              src="/xoro1/product/zero.jpg"
               alt="PULSE ONE™ connected diagnostics device"
               loading="eager"
             />
