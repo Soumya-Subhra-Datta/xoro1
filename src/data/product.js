@@ -1,0 +1,88 @@
+export const productData = {
+  name: 'PULSEONE™',
+  company: 'NEXORA',
+  tagline: 'The future of connected diagnostics.',
+  subtitle: 'Precision technology designed around the way people live, work and care.',
+  intro: {
+    heading: 'Precision, redesigned.',
+    body: 'PulseOne reimagines personal health monitoring through precision engineering and intelligent design. Built around real human needs, it transforms complex diagnostic technology into an intuitive, connected experience.',
+  },
+  hotspots: [
+    {
+      id: 1,
+      label: 'PRECISION SENSOR',
+      title: 'Precision Sensor',
+      description: 'Engineered to capture high-resolution physiological signals through a compact sensing system.',
+      position: [0, -1.3, 0.45],
+    },
+    {
+      id: 2,
+      label: 'AI PROCESSING CORE',
+      title: 'AI Processing Core',
+      description: 'Neural processing unit that interprets complex health data in real-time with clinical-grade accuracy.',
+      position: [0, 0, 0.55],
+    },
+    {
+      id: 3,
+      label: 'DISPLAY',
+      title: 'Adaptive Display',
+      description: 'High-resolution AMOLED interface that adapts content density based on context and urgency.',
+      position: [0, 0.7, 0.5],
+    },
+    {
+      id: 4,
+      label: 'CONNECTIVITY',
+      title: 'Seamless Connectivity',
+      description: 'Multi-band wireless system enabling instant data sync with healthcare platforms and devices.',
+      position: [1.15, 0, 0.35],
+    },
+    {
+      id: 5,
+      label: 'POWER SYSTEM',
+      title: 'Power System',
+      description: 'Adaptive power management delivering extended operational life with intelligent charging.',
+      position: [-1.15, -0.5, 0.35],
+    },
+  ],
+  howItWorks: [
+    { step: '01', label: 'SIGNAL', description: 'Physiological signals are captured through the precision sensor array.' },
+    { step: '02', label: 'SENSING', description: 'Raw data is filtered and conditioned for processing accuracy.' },
+    { step: '03', label: 'PROCESSING', description: 'AI core interprets patterns and generates meaningful health metrics.' },
+    { step: '04', label: 'ANALYSIS', description: 'Intelligent algorithms assess trends and flag anomalies.' },
+    { step: '05', label: 'INSIGHT', description: 'Actionable health insights delivered through the adaptive interface.' },
+  ],
+  explodedParts: [
+    { id: 'shell', label: 'Outer Shell', description: 'Medical-grade composite housing' },
+    { id: 'display', label: 'Display', description: 'Adaptive AMOLED interface' },
+    { id: 'sensor', label: 'Sensor Assembly', description: 'Multi-array precision sensing' },
+    { id: 'core', label: 'Processing Core', description: 'Neural processing unit' },
+    { id: 'power', label: 'Power System', description: 'Adaptive power management' },
+  ],
+  contexts: [
+    {
+      id: 'home',
+      label: 'HOME',
+      description: 'Intuitive personal monitoring that fits naturally into daily life. Track wellness trends without disruption.',
+      image: '/xoro1/med/med1.jpg',
+    },
+    {
+      id: 'clinical',
+      label: 'CLINICAL',
+      description: 'Professional-grade accuracy trusted by healthcare providers. Seamless integration with clinical workflows.',
+      image: '/xoro1/med/med3.jpg',
+    },
+    {
+      id: 'professional',
+      label: 'PROFESSIONAL',
+      description: 'Enterprise-ready deployment with centralized monitoring and compliance-ready data management.',
+      image: '/xoro1/med/med5.jpg',
+    },
+  ],
+  specs: [
+    { label: 'FORM FACTOR', value: 'Compact' },
+    { label: 'CONNECTIVITY', value: 'Wireless' },
+    { label: 'INTERFACE', value: 'Touch / Visual' },
+    { label: 'POWER', value: 'Rechargeable' },
+    { label: 'MATERIAL', value: 'Medical-grade composite' },
+  ],
+};
