@@ -136,16 +136,11 @@ export default function Hero() {
           {/* Right: Product */}
           <div className="hero-visual">
             <div className="hero-glow" aria-hidden="true" />
-            <video
-              className="hero-product-video"
-              src="/xoro1/videos/new.mp4"
-              poster="/xoro1/product/img1.jpg"
+            <img
+              className="hero-product-img"
+              src="/xoro1/product/img6.jpg"
               alt="PULSE ONE™ connected diagnostics device"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
+              loading="eager"
             />
           </div>
         </div>
@@ -200,13 +195,14 @@ export default function Hero() {
           filter: blur(10px);
           pointer-events: none;
         }
-        .hero-product-video {
+        .hero-product-img {
           position: relative;
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center;
           border-radius: 8px;
+          filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
           transform: translate(
             calc(var(--hero-mx, 0) * -12px),
             calc(var(--hero-my, 0) * -8px)
