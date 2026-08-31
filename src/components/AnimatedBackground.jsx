@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { animate, createTimeline, utils } from 'animejs';
+import { animate, createTimeline } from 'animejs';
 
 /**
  * AnimatedBackground
@@ -239,12 +239,12 @@ export default function AnimatedBackground() {
               const push = (1 - d / 150) * 0.35;
               p.x += (dx / (d || 1)) * push;
               p.y += (dy / (d || 1)) * push;
-              p.active = utils.damp(p.active || 0, 1, 0.08);
+              p.active += (1 - p.active) * 0.12;
             } else {
-              p.active = utils.damp(p.active || 0, 0, 0.08);
+              p.active += (0 - p.active) * 0.12;
             }
           } else {
-            p.active = utils.damp(p.active || 0, 0, 0.08);
+            p.active += (0 - p.active) * 0.12;
           }
           px = p.x;
           py = p.y + parallax;
