@@ -18,7 +18,7 @@ export default function ProductExplorer() {
       position: 'relative',
     }}>
       <div className="content-wrapper">
-        <div ref={ref1} className={`reveal ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 60 }}>
+        <div ref={ref1} className={`reveal reveal-right ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 60 }}>
           <div className="section-label">INTERACTIVE EXPLORATION</div>
           <h2 className="heading-lg">Explore what's inside.</h2>
         </div>

@@ -24,7 +24,7 @@ export default function FinalCTA() {
       }} />
 
       <div className="content-wrapper">
-        <div ref={ref1} className={`reveal ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 80 }}>
+        <div ref={ref1} className={`reveal reveal-bounce ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 80 }}>
           <div className="section-label">EXPERIENCE</div>
           <h2 className="heading-xl" style={{ marginBottom: 20 }}>
             See the technology.
@@ -43,7 +43,7 @@ export default function FinalCTA() {
             Experience PulseOne.
           </p>
 
-          <div ref={ref2} className={`reveal ${vis2 ? 'visible' : ''}`} style={{
+          <div ref={ref2} className={`reveal reveal-zoom ${vis2 ? 'visible' : ''}`} style={{
             display: 'flex',
             justifyContent: 'center',
             gap: 16,

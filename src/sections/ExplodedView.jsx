@@ -17,7 +17,7 @@ export default function ExplodedView() {
         </div>
 
         {/* Nano image instead of component buttons */}
-        <div ref={ref2} className={`reveal exploded-frame ${vis2 ? 'visible' : ''}`} data-tilt>
+        <div ref={ref2} className={`reveal reveal-zoom exploded-frame ${vis2 ? 'visible' : ''}`} data-tilt>
           <img
             className="exploded-img"
             src="/xoro1/nano.jpg"

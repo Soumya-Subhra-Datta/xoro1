@@ -77,7 +77,7 @@ export default function HowItWorks() {
       <div className="howitworks-accent" aria-hidden="true" />
 
       <div className="content-wrapper">
-        <div ref={ref1} className={`reveal ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 80 }}>
+        <div ref={ref1} className={`reveal reveal-flip ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 80 }}>
           <div className="section-label">HOW IT WORKS</div>
           <h2 className="heading-lg">From signal to insight.</h2>
         </div>

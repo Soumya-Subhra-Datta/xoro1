@@ -11,14 +11,14 @@ export default function Specifications() {
       position: 'relative',
     }}>
       <div className="content-wrapper">
-        <div ref={ref1} className={`reveal ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 60 }}>
+        <div ref={ref1} className={`reveal reveal-down ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 60 }}>
           <div className="section-label">SPECIFICATIONS</div>
           <h2 className="heading-lg">Designed down to the detail.</h2>
         </div>
 
         <div
           ref={ref2}
-          className={`reveal specs-grid ${vis2 ? 'visible' : ''}`}
+          className={`reveal reveal-left specs-grid ${vis2 ? 'visible' : ''}`}
         >
           {/* Product image */}
           <div className="specs-image" data-tilt>

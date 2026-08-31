@@ -16,7 +16,7 @@ export default function Context() {
       overflow: 'hidden',
     }}>
       <div className="content-wrapper">
-        <div ref={ref1} className={`reveal ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 60 }}>
+        <div ref={ref1} className={`reveal reveal-fade ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 60 }}>
           <div className="section-label">REAL-WORLD CONTEXT</div>
           <h2 className="heading-lg">Designed for real environments.</h2>
         </div>

@@ -18,7 +18,7 @@ export default function ProductIntro() {
           alignItems: 'center',
         }}>
           {/* Text side */}
-          <div ref={ref1} className={`reveal ${vis1 ? 'visible' : ''}`}>
+          <div ref={ref1} className={`reveal reveal-left ${vis1 ? 'visible' : ''}`}>
             <div className="section-label">PRODUCT INTRODUCTION</div>
             <h2 className="heading-lg" style={{ marginBottom: 28 }}>
               {productData.intro.heading}
@@ -31,7 +31,7 @@ export default function ProductIntro() {
           {/* Image side */}
           <div
             ref={ref2}
-            className={`reveal ${vis2 ? 'visible' : ''}`}
+            className={`reveal reveal-right ${vis2 ? 'visible' : ''}`}
             style={{
               position: 'relative',
               borderRadius: 8,

@@ -54,7 +54,7 @@ export default function Future() {
         background: 'linear-gradient(to bottom, rgba(8,9,12,0.7), rgba(8,9,12,0.85))',
       }} />
 
-      <div ref={ref1} className={`content-wrapper reveal ${vis1 ? 'visible' : ''}`} style={{
+      <div ref={ref1} className={`content-wrapper reveal reveal-blur ${vis1 ? 'visible' : ''}`} style={{
         position: 'relative',
         zIndex: 2,
         textAlign: 'center',

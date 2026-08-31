@@ -59,11 +59,11 @@ export default function Technology() {
 
         {/* Deliberate editorial grid: large left media + right column (media over text) */}
         <div className="tech-grid">
-          <div ref={ref2} className={`reveal tech-left ${vis2 ? 'visible' : ''}`}>
+          <div ref={ref2} className={`reveal reveal-left tech-left ${vis2 ? 'visible' : ''}`}>
             <VideoBlock src="/xoro1/videos/medical technology laboratory 4k stock video.mp4" className="tech-media tech-media--large" />
           </div>
 
-          <div ref={ref3} className={`reveal tech-right ${vis3 ? 'visible' : ''}`}>
+          <div ref={ref3} className={`reveal reveal-right tech-right ${vis3 ? 'visible' : ''}`}>
             <VideoBlock src="/xoro1/videos/medical laboratory close up 4k.mp4" className="tech-media tech-media--small" />
             <p className="body-lg" style={{ marginTop: 28 }}>
               Developed through rigorous research and precision engineering, PulseOne represents
