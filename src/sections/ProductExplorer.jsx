@@ -25,7 +25,7 @@ export default function ProductExplorer() {
 
         <div className="explorer-grid">
           {/* Product View */}
-          <div className="explorer-visual">
+          <div className="explorer-visual" data-tilt>
             <img
               className="explorer-product-img"
               src="/xoro1/product/img5.jpg"

@@ -71,6 +71,7 @@ export default function Navbar() {
       {/* Desktop CTA */}
       <button
         className="desktop-cta"
+        data-ripple
         onClick={open}
         style={{
           padding: '10px 22px',

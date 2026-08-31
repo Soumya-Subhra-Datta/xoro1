@@ -21,7 +21,7 @@ export default function Specifications() {
           className={`reveal specs-grid ${vis2 ? 'visible' : ''}`}
         >
           {/* Product image */}
-          <div className="specs-image">
+          <div className="specs-image" data-tilt>
             <img
               src="/xoro1/product/img2.jpg"
               alt="PulseOne specifications"

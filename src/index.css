@@ -226,3 +226,77 @@ input:focus-visible {
     font-size: clamp(1.2rem, 4vw, 1.5rem);
   }
 }
+
+/* ---------- anime.js animated background + interactions ---------- */
+
+/* Keep the fixed background canvas at z-index 0, content above it */
+.app {
+  position: relative;
+}
+.app > nav,
+.app > main {
+  position: relative;
+  z-index: 1;
+}
+.app > main {
+  min-height: 100vh;
+}
+.animated-bg {
+  z-index: 0;
+}
+
+/* Scroll reveal markup (driven by anime.js in useAnimeInteractions) */
+[data-reveal],
+[data-reveal-item],
+[data-reveal-grid] > * {
+  will-change: transform, opacity;
+}
+
+/* 3D tilt targets */
+[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+[data-tilt-shine] {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: background 0.2s ease;
+}
+
+/* Hover glow cards / buttons */
+[data-hover-glow] {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+[data-hover-glow-fill] {
+  position: absolute;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(45, 122, 237, 0.22), transparent 60%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* Click ripple */
+[data-ripple] {
+  position: relative;
+  overflow: hidden;
+}
+.ripple-ink {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tilt] {
+    transform: none !important;
+  }
+}

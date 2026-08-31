@@ -50,6 +50,7 @@ export default function FinalCTA() {
             flexWrap: 'wrap',
           }}>
             <button
+              data-ripple
               onClick={open}
               style={{
                 padding: '16px 40px',
@@ -74,6 +75,7 @@ export default function FinalCTA() {
               REQUEST A DEMO
             </button>
             <button
+              data-ripple
               style={{
                 padding: '16px 40px',
                 border: '1px solid var(--color-border-hover)',

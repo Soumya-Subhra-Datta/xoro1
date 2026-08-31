@@ -41,10 +41,10 @@ export default function Hero() {
         zIndex: 2,
         paddingTop: 100,
       }}>
-        <div className="hero-grid">
+        <div className="hero-grid" data-reveal>
           {/* Left: Text */}
-          <div>
-            <div style={{
+          <div data-reveal-grid>
+            <div data-reveal-item style={{
               fontSize: '0.7rem',
               fontWeight: 600,
               letterSpacing: '0.2em',
@@ -54,7 +54,7 @@ export default function Hero() {
             }}>
               NEXORA
             </div>
-            <h1 style={{
+            <h1 data-reveal-item style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(3rem, 5.5vw, 5rem)',
               fontWeight: 500,
@@ -64,7 +64,7 @@ export default function Hero() {
             }}>
               PULSE<br />ONE<span style={{ color: 'var(--color-accent)' }}>™</span>
             </h1>
-            <p style={{
+            <p data-reveal-item style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.1rem, 1.5vw, 1.4rem)',
               color: 'var(--color-text-secondary)',
@@ -74,7 +74,7 @@ export default function Hero() {
             }}>
               The future of connected diagnostics.
             </p>
-            <p style={{
+            <p data-reveal-item style={{
               fontSize: 'clamp(0.85rem, 1vw, 0.95rem)',
               color: 'var(--color-text-muted)',
               lineHeight: 1.7,
@@ -83,8 +83,11 @@ export default function Hero() {
             }}>
               Precision technology designed around the way people live, work and care.
             </p>
-            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <a href="#experience" style={{
+            <div data-reveal-item style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+              <a
+                data-ripple
+                href="#experience"
+                style={{
                 padding: '14px 32px',
                 background: 'var(--color-text)',
                 color: 'var(--color-bg)',
@@ -134,7 +137,7 @@ export default function Hero() {
           </div>
 
           {/* Right: Product */}
-          <div className="hero-visual">
+          <div className="hero-visual" data-tilt>
             <div className="hero-glow" aria-hidden="true" />
             <img
               className="hero-product-img"

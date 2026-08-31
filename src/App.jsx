@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
+import AnimatedBackground from './components/AnimatedBackground';
+import { useAnimeInteractions } from './animations/interactions';
 import Navbar from './components/Navbar';
 import LoadingScreen from './components/LoadingScreen';
 import { DemoModalProvider } from './components/DemoModal';
@@ -18,6 +20,8 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const lenisRef = useRef(null);
+
+  useAnimeInteractions();
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -63,6 +67,7 @@ export default function App() {
   return (
     <DemoModalProvider>
       <div className="app">
+        <AnimatedBackground />
         <Navbar />
         <main>
           <Hero />
