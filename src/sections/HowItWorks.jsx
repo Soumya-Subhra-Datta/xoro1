@@ -51,14 +51,7 @@ function StepIndicator({ step, label, isActive }) {
 
 function Connector({ isActive }) {
   return (
-    <div style={{
-      flex: 1,
-      height: 1,
-      alignSelf: 'flex-start',
-      marginTop: 24,
-      background: isActive ? 'var(--color-accent)' : 'var(--color-border)',
-      transition: 'background 0.6s',
-    }} />
+    <div className={`step-connector ${isActive ? 'is-active' : ''}`} />
   );
 }
 
@@ -81,17 +74,7 @@ export default function HowItWorks() {
       overflow: 'hidden',
     }}>
       {/* Background accent */}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 600,
-        height: 600,
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(45, 122, 237, 0.04) 0%, transparent 70%)',
-        pointerEvents: 'none',
-      }} />
+      <div className="howitworks-accent" aria-hidden="true" />
 
       <div className="content-wrapper">
         <div ref={ref1} className={`reveal ${vis1 ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: 80 }}>
@@ -180,6 +163,19 @@ export default function HowItWorks() {
       </div>
 
       <style>{`
+        .howitworks-accent {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: min(600px, 100vw);
+          height: min(600px, 100vw);
+          max-width: 600px;
+          max-height: 600px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(45, 122, 237, 0.04) 0%, transparent 70%);
+          pointer-events: none;
+        }
         .step-track {
           display: flex;
           align-items: flex-start;
@@ -196,7 +192,17 @@ export default function HowItWorks() {
           flex: 1;
           min-width: 0;
         }
-        .step-item:first-child .step-indicator-fill { }
+        .step-connector {
+          flex: 1;
+          align-self: flex-start;
+          height: 1px;
+          margin-top: 24px;
+          background: var(--color-border);
+          transition: background 0.6s;
+        }
+        .step-connector.is-active {
+          background: var(--color-accent);
+        }
         @media (max-width: 768px) {
           .step-track {
             margin-bottom: 60px;
@@ -211,6 +217,9 @@ export default function HowItWorks() {
           }
           .step-item .step-indicator span {
             font-size: 0.7rem;
+          }
+          .step-connector {
+            margin-top: 20px;
           }
         }
       `}</style>

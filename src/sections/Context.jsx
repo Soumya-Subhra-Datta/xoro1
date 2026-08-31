@@ -27,7 +27,7 @@ export default function Context() {
           justifyContent: 'center',
           marginBottom: 48,
         }}>
-          <div style={{
+          <div className="context-control" style={{
             display: 'flex',
             background: 'var(--color-bg-elevated)',
             borderRadius: 6,
@@ -39,6 +39,8 @@ export default function Context() {
                 key={ctx.id}
                 onClick={() => setActiveContext(index)}
                 style={{
+                  flex: 1,
+                  whiteSpace: 'nowrap',
                   padding: '10px 28px',
                   fontSize: '0.7rem',
                   fontWeight: 600,
@@ -138,6 +140,9 @@ export default function Context() {
       </div>
 
       <style>{`
+        .context-control {
+          max-width: 100%;
+        }
         .context-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -156,6 +161,21 @@ export default function Context() {
           .context-grid {
             grid-template-columns: 1fr;
             gap: 32px;
+          }
+        }
+        @media (max-width: 480px) {
+          .context-control {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+          }
+          .context-control::-webkit-scrollbar { display: none; }
+          .context-control button {
+            flex: 0 0 auto;
+            padding: 10px 14px;
+            white-space: nowrap;
           }
         }
       `}</style>
