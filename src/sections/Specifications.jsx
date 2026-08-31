@@ -6,7 +6,7 @@ export default function Specifications() {
   const [ref2, vis2] = useReveal();
 
   return (
-    <section style={{
+    <section data-slide="wipeup" style={{
       padding: 'var(--section-pad) 0',
       position: 'relative',
     }}>

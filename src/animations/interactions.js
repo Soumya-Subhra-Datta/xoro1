@@ -212,9 +212,133 @@ function initClickPulse(scope = document) {
   });
 }
 
+// ---------- per-section distinct slide-deck animations ----------
+// Each [data-slide="VAR"] section plays a different entrance animation.
+// Variants: slideup | pop | split | slideright | flipx | zoom | clip | rolldown
+const SECTION_VARIANTS = {
+  slideup(el) {
+    el.style.transform = 'translateY(90px)';
+    el.style.opacity = '0';
+    return { opacity: [0, 1], translateY: [90, 0], scale: [0.99, 1], duration: 1000, ease: 'outCubic' };
+  },
+  pop(el) {
+    el.style.transform = 'scale(0.92)';
+    el.style.opacity = '0';
+    return { opacity: [0, 1], scale: [0.92, 1], translateY: [30, 0], duration: 800, ease: 'outBack' };
+  },
+  slideright(el) {
+    el.style.transform = 'translateX(-110px)';
+    el.style.opacity = '0';
+    return { opacity: [0, 1], translateX: [-110, 0], duration: 950, ease: 'outCubic' };
+  },
+  flipx(el) {
+    el.style.transform = 'perspective(1400px) rotateX(-18deg)';
+    el.style.opacity = '0';
+    return { opacity: [0, 1], rotateX: [-18, 0], duration: 1000, ease: 'outExpo' };
+  },
+  zoom(el) {
+    el.style.transform = 'scale(0.86)';
+    el.style.opacity = '0';
+    return { opacity: [0, 1], scale: [0.86, 1], duration: 1100, ease: 'outExpo' };
+  },
+  clip(el) {
+    el.style.transform = 'none';
+    el.style.opacity = '1';
+    el.style.clipPath = 'inset(0 0 100% 0)';
+    return {
+      clipPath: ['inset(0 0 100% 0)', 'inset(0 0 0% 0)'],
+      translateY: [40, 0],
+      duration: 1000,
+      ease: 'outCubic',
+      complete: () => { el.style.clipPath = ''; },
+    };
+  },
+  rolldown(el) {
+    el.style.transform = 'translateY(-90px)';
+    el.style.opacity = '0';
+    return { opacity: [0, 1], translateY: [-90, 0], duration: 950, ease: 'outCubic' };
+  },
+  wipeup(el) {
+    el.style.transform = 'none';
+    el.style.opacity = '1';
+    el.style.clipPath = 'inset(100% 0 0 0)';
+    return {
+      clipPath: ['inset(100% 0 0 0)', 'inset(0% 0 0 0)'],
+      translateY: [60, 0],
+      duration: 1000,
+      ease: 'outCubic',
+      complete: () => { el.style.clipPath = ''; },
+    };
+  },
+  // "two slides joining into one page": sibling columns converge from left/right
+  split(el) {
+    const cols = Array.from(el.children).filter((c) => c.childElementCount > 0);
+    const targets = cols.length > 1 ? cols.slice(0, 2) : [el];
+    targets.forEach((c, i) => {
+      if (c === el) return;
+      const dir = i % 2 === 0 ? -1 : 1;
+      c.style.transform = `translateX(${dir * 90}px)`;
+      c.style.opacity = '0';
+    });
+    el.style.opacity = '1';
+    return {
+      opacity: [el === targets[0] ? 0 : 1, 1],
+      translateX: 0,
+      duration: 1000,
+      ease: 'outCubic',
+      complete() {
+        targets.forEach((c) => { c.style.transform = 'none'; c.style.opacity = '1'; });
+      },
+    };
+  },
+};
+
+function initSectionSlides(scope = document) {
+  const els = scope.querySelectorAll('[data-slide]');
+  if (!els.length) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  els.forEach((el) => {
+    if (el.dataset.slideBound === '1') return;
+    el.dataset.slideBound = '1';
+
+    if (reduce) {
+      el.dataset.done = '1';
+      return;
+    }
+
+    el.style.willChange = 'transform, opacity';
+
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((en) => en.isIntersecting && run()),
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+    obs.observe(el);
+
+    function run() {
+      if (el.dataset.done === '1') return;
+      el.dataset.done = '1';
+      const variant = SECTION_VARIANTS[el.dataset.slide] || SECTION_VARIANTS.slideup;
+      const params = variant(el);
+      animate(el, {
+        ...params,
+        delay: 40,
+        complete: () => {
+          el.style.transform = 'none';
+          el.style.opacity = '1';
+          el.style.willChange = 'auto';
+          if (params.complete) params.complete();
+        },
+      });
+      obs.unobserve(el);
+    }
+  });
+}
+
 export function useAnimeInteractions() {
   useEffect(() => {
     initReveals();
+    initSectionSlides();
     initTilt();
     initHover();
     initClickPulse();

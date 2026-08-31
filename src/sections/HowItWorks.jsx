@@ -68,7 +68,7 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section ref={sectionRef} style={{
+    <section ref={sectionRef} data-slide="split" style={{
       padding: 'var(--section-pad) 0',
       position: 'relative',
       overflow: 'hidden',

@@ -10,7 +10,7 @@ export default function Context() {
   const active = contexts[activeContext];
 
   return (
-    <section style={{
+    <section data-slide="clip" style={{
       padding: 'var(--section-pad) 0',
       position: 'relative',
       overflow: 'hidden',

@@ -7,7 +7,7 @@ export default function FinalCTA() {
   const { open } = useDemoModal();
 
   return (
-    <section style={{
+    <section data-slide="pop" style={{
       padding: 'var(--section-pad) 0',
       paddingBottom: 'calc(var(--section-pad) + 40px)',
       position: 'relative',

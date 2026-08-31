@@ -5,7 +5,7 @@ export default function ExplodedView() {
   const [ref2, vis2] = useReveal(0.15);
 
   return (
-    <section style={{
+    <section data-slide="slideright" style={{
       padding: 'var(--section-pad) 0',
       position: 'relative',
     }}>

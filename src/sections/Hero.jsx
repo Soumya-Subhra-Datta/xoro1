@@ -13,7 +13,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section
+    <section data-slide="zoom"
       id="product"
       style={{
         minHeight: '100vh',

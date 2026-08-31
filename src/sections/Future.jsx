@@ -24,7 +24,7 @@ export default function Future() {
   }, []);
 
   return (
-    <section ref={containerRef} style={{
+    <section ref={containerRef} data-slide="rolldown" style={{
       position: 'relative',
       minHeight: '100vh',
       display: 'flex',
