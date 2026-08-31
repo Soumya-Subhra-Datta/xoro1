@@ -138,7 +138,7 @@ export default function Hero() {
             <div className="hero-glow" aria-hidden="true" />
             <img
               className="hero-product-img"
-              src="/xoro1/product/img6.jpg"
+              src="/xoro1/product/79a657bb-1037-4532-8466-6fd89648e2dc.jpg"
               alt="PULSE ONE™ connected diagnostics device"
               loading="eager"
             />
@@ -199,10 +199,9 @@ export default function Hero() {
           position: relative;
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
           object-position: center;
-          border-radius: 8px;
-          filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+          filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.35));
           transform: translate(
             calc(var(--hero-mx, 0) * -12px),
             calc(var(--hero-my, 0) * -8px)
